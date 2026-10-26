@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mohinur Abdumannonova — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<!-- Scroll progress va maxsus kursor -->
+<div class="progress" id="progress"></div>
+<div class="cur" id="cur"></div><div class="ring" id="ring"></div>
+<!-- Fon effektlari -->
+<div class="glow" id="glow"></div>
+<div class="blob b1"></div><div class="blob b2"></div>
+
+<!-- Navigatsiya, til va mavzu tugmalari -->
+<header class="nav">
+  <a href="#home" class="logo">M<span>.</span>A</a>
+  <nav>
+    <a href="#about" data-i18n="nav_about">Men haqimda</a>
+    <a href="#skills" data-i18n="nav_skills">Ko'nikmalar</a>
+    <a href="#projects" data-i18n="nav_projects">Loyihalar</a>
+    <a href="#contact" data-i18n="nav_contact">Aloqa</a>
+  </nav>
+  <div class="tools">
+    <button id="lang" class="pill" aria-label="Language">EN</button>
+    <button id="theme" class="pill" aria-label="Theme">☾</button>
+  </div>
+</header>
+
+<main>
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="hero-text">
+    <p class="hi" data-i18n="hi">Salom, men</p>
+    <h1 aria-label="Mohinur Abdumannonova">Mohinur<br>Abdumannonova</h1>
+    <p class="role"><span id="typed"></span><i class="caret"></i></p>
+    <p class="lead" data-i18n="lead">G'oyalarni toza kod va jonli interfeyslarga aylantiraman.</p>
+    <div class="cta">
+      <a href="#projects" class="btn solid" data-i18n="btn_work">Ishlarimni ko'rish</a>
+      <a href="#contact" class="btn ghost" data-i18n="btn_contact">Bog'lanish</a>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <div class="arch"><img src="images/profile.png" alt="Mohinur Abdumannonova"></div>
+    <span class="chip c1">&lt;html/&gt;</span>
+    <span class="chip c2">{ css }</span>
+    <span class="chip c3">js()</span>
+    <span class="chip c4">git</span>
+    <!-- Aylanuvchi yozuvli sticker -->
+    <div class="spin" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="cp" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"/></defs><text><textPath href="#cp">Frontend developer ✦ Creative coder ✦ Uzbekistan ✦ </textPath></text></svg><b>✦</b></div>
+  </div>
+</section>
+
+<!-- Texnologiyalar lentasi (ikki marta takrorlangan — uzluksiz aylanish uchun) -->
+<div class="marquee"><div class="track">
+  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Git</span><span>Responsive</span><span>UI/UX</span><span>API</span>
+  <span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>Git</span><span>Responsive</span><span>UI/UX</span><span>API</span>
+</div></div>
+
+<!-- Men haqimda -->
+<section id="about" class="sec reveal">
+  <h2 data-i18n="about_t">Men haqimda</h2>
+  <div class="about-grid">
+    <p class="about" data-i18n="about_p">Men dasturchiman.</p>
+    <!-- Terminal oyna: kod qator-qator paydo bo'ladi -->
+    <div class="term" aria-hidden="true">
+      <div class="term-bar"><i></i><i></i><i></i></div>
+      <pre><span class="l" style="--i:1"><b class="k">const</b> mohinur = {</span>
+<span class="l" style="--i:2">  role: <b class="s">"Frontend Developer"</b>,</span>
+<span class="l" style="--i:3">  stack: [<b class="s">"HTML"</b>, <b class="s">"CSS"</b>, <b class="s">"JS"</b>],</span>
+<span class="l" style="--i:4">  building: <b class="s">"SkillMatch"</b>,</span>
+<span class="l" style="--i:5">  coffee: <b class="n">Infinity</b>,</span>
+<span class="l" style="--i:6">  openToWork: <b class="n">true</b></span>
+<span class="l" style="--i:7">};<i class="caret"></i></span></pre>
+    </div>
+  </div>
+</section>
+
+<!-- Ko'nikmalar: data-v = foiz -->
+<section id="skills" class="sec reveal">
+  <h2 data-i18n="skills_t">Ko'nikmalar</h2>
+  <div class="bars">
+    <div class="bar" data-v="90"><b>HTML</b><i><u></u></i></div>
+    <div class="bar" data-v="85"><b>CSS</b><i><u></u></i></div>
+    <div class="bar" data-v="75"><b>JavaScript</b><i><u></u></i></div>
+    <div class="bar" data-v="60"><b>React</b><i><u></u></i></div>
+  </div>
+</section>
+
+<!-- Loyihalar: rasmlarni images/ papkasida almashtiring -->
+<section id="projects" class="sec reveal">
+  <h2 data-i18n="projects_t">Loyihalar</h2>
+  <div class="grid">
+    <!-- 1-loyiha: SkillMatch (jarayonda) -->
+    <article class="card tilt"><img src="images/project1.svg" alt="SkillMatch"><span class="badge" data-i18n="wip">Jarayonda</span><h3 data-i18n="p1_t">SkillMatch</h3><p data-i18n="p1_d"></p><a href="https://github.com/Mohinur-Al" target="_blank" rel="noopener" class="more" data-i18n="view">GitHub'da ko'rish</a></article>
+    <!-- 2 va 3-loyihalar: yangi ishlaringizni shu yerga qo'shing -->
+    <article class="card tilt"><img src="images/project2.svg" alt=""><span class="badge soon" data-i18n="soon">Tez orada</span><h3 data-i18n="p2_t">Yangi loyiha</h3><p data-i18n="p2_d"></p></article>
+    <article class="card tilt"><img src="images/project3.svg" alt=""><span class="badge soon" data-i18n="soon">Tez orada</span><h3 data-i18n="p3_t">Yangi loyiha</h3><p data-i18n="p3_d"></p></article>
+  </div>
+</section>
+
+<!-- Ko'p tilli salomlashuv lentasi (teskari yo'nalishda) -->
+<div class="marquee hello rev" aria-hidden="true"><div class="track">
+  <span>Salom</span><span>Hello</span><span>Привет</span><span>Hola</span><span>你好</span><span>Salom</span><span>Hello</span><span>Привет</span><span>Hola</span><span>你好</span>
+  <span>Salom</span><span>Hello</span><span>Привет</span><span>Hola</span><span>你好</span><span>Salom</span><span>Hello</span><span>Привет</span><span>Hola</span><span>你好</span>
+</div></div>
+<!-- Aloqa: Telegram va GitHub -->
+<section id="contact" class="sec reveal contact">
+  <h2 data-i18n="contact_t">Birga ishlaymizmi?</h2>
+  <p data-i18n="contact_p"></p>
+  <a class="btn solid big" href="https://t.me/mokx1m_o7" target="_blank" rel="noopener">@mokx1m_o7</a>
+  <div class="social"><a href="https://t.me/mokx1m_o7" target="_blank" rel="noopener">Telegram</a><a href="https://github.com/Mohinur-Al" target="_blank" rel="noopener">GitHub</a></div>
+</section>
+</main>
+<footer>© <span id="year"></span> Mohinur Abdumannonova</footer>
+<script src="js/script.js"></script>
+</body>
+</html>

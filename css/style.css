@@ -1,0 +1,133 @@
+/* ===== 1. Ranglar (dark rejim) — barcha ranglar shu yerda o'zgartiriladi ===== */
+:root{--bg:#120d24;--bg2:#1b1433;--tx:#f3eeff;--mut:#a89cc8;--a:#b9a4ff;--b:#ff9f7a;--c:#6ff0cb;--line:#ffffff1f;--r:28px}
+/* Light rejim: faqat o'zgaruvchilar qayta aniqlanadi */
+[data-theme=light]{--bg:#fbf7ff;--bg2:#efe7ff;--tx:#1b1033;--mut:#6b5f8a;--a:#6a45f5;--b:#ff6f3c;--c:#0fb58c;--line:#1b10331f}
+/* ===== 2. Umumiy sozlamalar ===== */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:Manrope,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;overflow-x:hidden;transition:background .4s,color .4s}
+h1,h2,h3,.logo{font-family:Unbounded,sans-serif;line-height:1.1}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--a);outline-offset:3px}
+/* ===== 3. Fon effektlari: sichqoncha glow va suzuvchi blur shakllar ===== */
+.glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(var(--a),transparent 65%);opacity:.18;pointer-events:none;transform:translate(-50%,-50%);z-index:0;left:50%;top:30%}
+.blob{position:fixed;border-radius:50%;filter:blur(90px);opacity:.28;z-index:0;animation:float 14s ease-in-out infinite alternate}
+.b1{width:380px;height:380px;background:var(--a);top:-100px;right:-80px}
+.b2{width:320px;height:320px;background:var(--b);bottom:-100px;left:-80px;animation-delay:-6s}
+@keyframes float{to{transform:translate(40px,60px) scale(1.15)}}
+main,.nav,footer{position:relative;z-index:1}
+/* ===== 4. Navigatsiya ===== */
+.nav{position:sticky;top:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 5vw;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 70%,transparent);border-bottom:1px solid var(--line);z-index:10}
+.logo{font-size:1.3rem}.logo span{color:var(--b)}
+.nav nav{display:flex;gap:26px;font-weight:500;font-size:.95rem}
+.nav nav a{color:var(--mut);transition:.2s}.nav nav a:hover{color:var(--tx)}
+.tools{display:flex;gap:8px}
+.pill{border:1px solid var(--line);background:var(--bg2);color:var(--tx);border-radius:99px;padding:8px 14px;font:700 .85rem Manrope;cursor:pointer;transition:.25s}
+.pill:hover{border-color:var(--a);transform:rotate(-4deg) scale(1.06)}
+/* ===== 5. Hero: ism, kasb, tugmalar, arka rasm ===== */
+.hero{display:grid;grid-template-columns:1.2fr 1fr;gap:5vw;align-items:center;min-height:calc(100vh - 60px);padding:40px 5vw}
+.hi{color:var(--c);font-weight:700;margin-bottom:10px}
+h1{font-size:clamp(2.2rem,6vw,4.6rem);font-weight:700;letter-spacing:-.03em;color:var(--tx)}
+@keyframes shine{to{background-position:100% 0}}
+.role{font:500 1.3rem Unbounded;margin:22px 0 10px;min-height:2em;color:var(--b)}
+.caret{display:inline-block;width:3px;height:1.1em;background:var(--b);margin-left:4px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--mut);max-width:46ch;font-size:1.1rem}
+.cta{display:flex;gap:14px;margin-top:30px;flex-wrap:wrap}
+.btn{display:inline-block;padding:14px 28px;border-radius:99px;font-weight:700;transition:.3s}
+.solid{background:linear-gradient(120deg,var(--a),var(--b));color:#150d2b}
+.solid:hover{transform:translateY(-4px);box-shadow:0 14px 30px -8px var(--a)}
+.ghost{border:1.5px solid var(--line)}.ghost:hover{border-color:var(--a);transform:translateY(-4px)}
+.big{font-size:1.2rem;padding:18px 36px}
+.hero-photo{position:relative;justify-self:center;width:min(380px,80vw)}
+.arch{aspect-ratio:3/4;border-radius:999px 999px 36px 36px;overflow:hidden;border:2px solid var(--line);padding:10px;background:linear-gradient(160deg,var(--a),var(--b));animation:pulse 5s ease-in-out infinite}
+.arch img{width:100%;height:100%;object-fit:cover;object-position:50% 20%;border-radius:999px 999px 28px 28px;display:block}
+@keyframes pulse{50%{box-shadow:0 0 70px -10px var(--a)}}
+/* Rasm atrofida suzuvchi kod belgilari */
+.chip{position:absolute;padding:8px 14px;border-radius:14px;background:var(--bg2);border:1px solid var(--line);font:700 .85rem monospace;color:var(--c);animation:bob 4s ease-in-out infinite alternate}
+.c1{top:6%;left:-14%}.c2{top:30%;right:-12%;animation-delay:-1s;color:var(--b)}.c3{bottom:26%;left:-12%;animation-delay:-2s;color:var(--a)}.c4{bottom:6%;right:-8%;animation-delay:-3s}
+@keyframes bob{to{transform:translateY(-16px) rotate(3deg)}}
+/* ===== 6. Texnologiyalar lentasi (cheksiz aylanadi) ===== */
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:18px 0;background:var(--bg2);position:relative;z-index:1}
+.track{display:flex;gap:48px;width:max-content;animation:scroll 22s linear infinite}
+.track span{font:700 1.6rem Unbounded;color:transparent;-webkit-text-stroke:1px var(--a);white-space:nowrap}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes scroll{to{transform:translateX(-50%)}}
+/* ===== 7. Bo'limlar: haqimda, ko'nikmalar ===== */
+.sec{padding:100px 5vw;max-width:1150px;margin:auto}
+.sec h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:32px}
+.about{font-size:1.25rem;max-width:62ch;color:var(--mut)}
+.bars{display:grid;gap:22px;max-width:620px}
+.bar b{display:block;margin-bottom:6px}
+.bar i{display:block;height:10px;background:var(--bg2);border-radius:9px;overflow:hidden}
+.bar u{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--a),var(--c));border-radius:9px;transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+/* ===== 8. Loyiha kartalari (notekis burchak + 3D tilt JS orqali) ===== */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:28px}
+.card{background:var(--bg2);border:1px solid var(--line);border-radius:var(--r) var(--r) 60px var(--r);padding:16px 16px 26px;transition:transform .2s,border-color .3s;transform-style:preserve-3d}
+.card:hover{border-color:var(--a)}
+.card img{width:100%;border-radius:18px;margin-bottom:16px;display:block}
+.card h3{font-size:1.15rem;margin:0 8px 8px}.card p{color:var(--mut);margin:0 8px 14px;font-size:.95rem}
+.more{margin-left:8px;color:var(--b);font-weight:700}
+/* ===== 9. Aloqa va footer ===== */
+.contact{text-align:center}.contact p{color:var(--mut);margin-bottom:26px}
+.social{display:flex;gap:22px;justify-content:center;margin-top:28px;color:var(--mut)}
+.social a:hover{color:var(--a)}
+footer{text-align:center;padding:30px;color:var(--mut);border-top:1px solid var(--line);font-size:.9rem}
+/* ===== 10. Scroll animatsiyasi va moslashuvchanlik ===== */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}.reveal.in{opacity:1;transform:none}
+@media(max-width:800px){.hero{grid-template-columns:1fr;text-align:center;padding-top:30px}.hero-photo{order:-1}.lead{margin:auto}.cta{justify-content:center}.nav nav{display:none}.chip{display:none}}
+/* Animatsiyani kamaytirishni so'ragan foydalanuvchilar uchun */
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* Loyiha holati belgisi */
+.badge{display:inline-block;margin:0 8px 10px;padding:3px 12px;border-radius:99px;font:700 .75rem Manrope;background:var(--c);color:#06231b}
+.badge.soon{background:var(--bg);color:var(--mut);border:1px dashed var(--line)}
+
+/* ===== 11. Yangi kreativ effektlar ===== */
+/* Donador (grain) qatlami — dizaynga "qog'oz" teksturasi beradi */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* Scroll progress */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--a),var(--b),var(--c));z-index:50}
+/* Maxsus kursor (faqat sichqonchali qurilmalarda) */
+.cur,.ring{position:fixed;left:0;top:0;pointer-events:none;z-index:200;display:none}
+.cur{width:8px;height:8px;margin:-4px;border-radius:50%;background:var(--b)}
+.ring{width:36px;height:36px;margin:-18px;border:1.5px solid var(--a);border-radius:50%;transition:width .25s,height .25s,margin .25s,background .25s}
+.ring.big{width:66px;height:66px;margin:-33px;background:color-mix(in srgb,var(--a) 20%,transparent)}
+@media(pointer:fine){.cur,.ring{display:block}body,a,button{cursor:none}}
+/* Ism harflari: yuklanganda tushadi, ustiga borilganda sakraydi */
+h1 .ch{display:inline-block;transition:transform .3s cubic-bezier(.3,1.8,.5,1),color .2s;animation:drop .8s cubic-bezier(.3,1.4,.5,1) backwards;animation-delay:calc(var(--i)*55ms)}
+h1 .ch:hover{color:var(--b);transform:translateY(-12px) rotate(-8deg) scale(1.15)}
+@keyframes drop{from{opacity:0;transform:translateY(-70px) rotate(-14deg)}}
+/* Aylanuvchi sticker */
+.spin{position:absolute;left:-16%;bottom:-5%;width:130px;height:130px;border-radius:50%;background:var(--bg2);border:1px solid var(--line);animation:rot 16s linear infinite}
+.spin svg{width:100%;height:100%}.spin text{font:700 15.5px Manrope;fill:var(--tx)}
+.spin b{position:absolute;inset:0;display:grid;place-items:center;font-size:1.8rem;color:var(--b);animation:rot 16s linear infinite reverse}
+@keyframes rot{to{transform:rotate(360deg)}}
+/* Chiplar sichqonchaga ergashadi (parallax) */
+.chip{translate:var(--px,0) var(--py,0);transition:translate .3s}
+/* Terminal karta */
+.about-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
+.term{background:#0d0919;border:1px solid var(--line);border-radius:18px;overflow:hidden;font:500 .95rem/1.8 monospace;color:#d9ccff;box-shadow:0 30px 60px -30px var(--a);transform:rotate(2.5deg);transition:transform .4s}
+.term:hover{transform:rotate(0)}
+.term-bar{display:flex;gap:7px;padding:12px 16px;background:#1b1433}
+.term-bar i{width:11px;height:11px;border-radius:50%;background:#ff6b6b}
+.term-bar i:nth-child(2){background:#ffd166}.term-bar i:nth-child(3){background:#6ff0cb}
+.term pre{padding:18px 20px;overflow-x:auto}
+.term b{font-weight:500}.k{color:#ff9f7a}.s{color:#6ff0cb}.n{color:#b9a4ff}
+.l{opacity:0;transition:opacity .3s calc(var(--i)*.35s)}.in .l{opacity:1}
+/* Kartalar: kursor nuri va katta birinchi karta */
+.card{position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--a) 26%,transparent),transparent 70%)}
+.card:hover::before{opacity:1}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.card:first-child{grid-column:span 2;grid-row:span 2}.card:first-child img{aspect-ratio:4/3;object-fit:cover}.card:first-child h3{font-size:1.6rem}}
+/* Salomlashuv lentasi */
+.hello{background:transparent;border:0;margin-top:40px}
+.hello .track{animation-duration:30s}.rev .track{animation-direction:reverse}
+.hello .track span{font-size:clamp(2.5rem,7vw,5rem);-webkit-text-stroke:1.5px var(--b);transition:.3s}
+.hello .track span:hover{color:var(--b)}
+/* Bosilganda uchib chiqadigan yulduzchalar */
+.spark{position:fixed;pointer-events:none;z-index:150;animation:spark .8s ease-out forwards}
+@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+/* Mavzu almashganda doira bo'lib kengayish */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+@media(max-width:800px){.about-grid{grid-template-columns:1fr}.spin{left:-4%;width:100px;height:100px}}
